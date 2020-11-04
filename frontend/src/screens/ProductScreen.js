@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { onFetchProductDetails } from "../store/actions/Products";
 import { Link } from "react-router-dom";
 import Rating from "../components/Product/Rating";
@@ -11,6 +11,7 @@ const ProductScreen = (props) => {
   const productId = props.match.params.id;
   const productDetails = useSelector((state) => state.productDetailReducer);
   const { loading, error, product } = productDetails;
+  const [qty, setQty] = useState(1);
 
   useEffect(() => {
     dispatch(onFetchProductDetails(productId));
@@ -68,9 +69,30 @@ const ProductScreen = (props) => {
                       </div>
                     </div>
                   </li>
-                  <li>
-                    <button className="primary block">Add to Cart</button>
-                  </li>
+                  {product.countInStock > 0 && (
+                    <>
+                      <li>
+                        <div className="row">
+                          <div>QTY</div>
+                          <div>
+                            <select
+                              value={qty}
+                              onChange={(e) => setQty(e.target.value)}
+                            >
+                              {[...Array(product.countInStock).keys()].map(
+                                (x) => (
+                                  <option key={x + 1} value={x + 1}>{x + 1}</option>
+                                )
+                              )}
+                            </select>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <button className="primary block">Add to Cart</button>
+                      </li>
+                    </>
+                  )}
                 </ul>
               </div>
             </div>
@@ -80,7 +102,5 @@ const ProductScreen = (props) => {
     </div>
   );
 };
-
-
 
 export default ProductScreen;
