@@ -17,6 +17,13 @@ const ProductScreen = (props) => {
     dispatch(onFetchProductDetails(productId));
   }, [dispatch, productId]);
 
+
+
+  //methods
+  const addToCartHandler = () => {
+       props.history.push(`/cart/${productId}?qty=${qty}`);
+  };
+
   return (
     <div>
       {loading ? (
@@ -89,7 +96,7 @@ const ProductScreen = (props) => {
                         </div>
                       </li>
                       <li>
-                        <button className="primary block">Add to Cart</button>
+                        <button onClick={addToCartHandler} className="primary block">Add to Cart</button>
                       </li>
                     </>
                   )}
