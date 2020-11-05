@@ -95,7 +95,7 @@ button.block {
 /* header */
 header a {
   color: #ffffff;
-  padding: 1rem;
+  padding: 2rem;
 }
 a.brand {
   color: #ffffff;
@@ -159,6 +159,18 @@ img.large {
   margin-left: 1rem;
   font-style: italic;
 }
+
+/* badge */
+
+.badge {
+    color: #FFFFFF;
+    margin-top: -1.5px;
+    font-size: 2.3rem !important;    
+}
+.badge:hover {
+  color:  #ff8000;
+}
+
 
 /* Alert */
 .success {
@@ -240,3 +252,4 @@ img.large {
     box-shadow: 0 2.5em 0 0;
   }
 }
+

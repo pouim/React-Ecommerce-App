@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { connect } from 'react-redux';
 import { onFetchProducts } from '../store/actions/Products';
 import Product from "../components/Product/Product";
@@ -8,10 +8,18 @@ import LoadingBox from '../components/LoadingBox';
 const HomeScreen = (props) => {
   const { error, loading, products, onFetchProducts } = props;
   
-  useEffect(() => {
-     onFetchProducts();
-  }, [onFetchProducts]);
+ 
 
+  const fetchProductsHandler = useCallback(
+    () => {
+      onFetchProducts()
+    },
+    [onFetchProducts],
+  )
+  
+   useEffect(() => {
+     fetchProductsHandler();
+  }, [fetchProductsHandler]);
 
   return (
     <div>

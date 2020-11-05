@@ -2,9 +2,13 @@ import React from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from './screens/ProductScreen';
+import { useSelector } from "react-redux";
 import CartScreen from './screens/CartScreen';
+import Badge from './components/UI/Badge';
 
 function App() {
+  const cartReducer = useSelector(state => state.cartReducer);
+  const { numItems } = cartReducer
   return (
     <BrowserRouter>
       <div className="grid-container">
@@ -15,7 +19,7 @@ function App() {
             </Link>
           </div>
           <div>
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart"><Badge numItems={numItems} /></Link>
             <Link to="/signin">Sign In</Link>
           </div>
         </header>
