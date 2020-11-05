@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { onFetchProductDetails } from "../store/actions/Products";
 import { Link } from "react-router-dom";
-import Rating from "../components/Product/Rating";
-import MessageBox from "../components/MessageBox";
-import LoadingBox from "../components/LoadingBox";
+import Rating from "../components/UI/Rating/Rating";
+import MessageBox from "../components/UI/MessageBox";
+import LoadingBox from "../components/UI/LodingBox/LoadingBox";
 
 const ProductScreen = (props) => {
   const dispatch = useDispatch();

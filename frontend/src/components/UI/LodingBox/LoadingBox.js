@@ -1,9 +1,9 @@
 import React from 'react';
-
+import styles from './LoadingBox.module.css';
 
 const LoadingBox = () => {
     return (
-       <div className="loader">Loading...</div>
+       <div className={styles.loader}>Loading...</div>
     );
 };
 

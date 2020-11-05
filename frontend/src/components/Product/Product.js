@@ -1,6 +1,6 @@
 import React from "react";
 // import Skeleton from "react-loading-skeleton";
-import Rating from "./Rating";
+import Rating from "../UI/Rating/Rating";
 import { Link } from "react-router-dom";
 
 

@@ -1,10 +1,10 @@
 import React from 'react';
-
+import styles from './Rating.module.css';
 
 const Rating = props => {
     const { ratingNumber, ratingReviews } = props;
     return (
-      <div className="rating">
+      <div className={styles.rating}>
         <span>
           <i
             className={

@@ -2,8 +2,8 @@ import React, { useEffect, useCallback } from "react";
 import { connect } from 'react-redux';
 import { onFetchProducts } from '../store/actions/Products';
 import Product from "../components/Product/Product";
-import MessageBox from "../components/MessageBox";
-import LoadingBox from '../components/LoadingBox';
+import MessageBox from "../components/UI/MessageBox";
+import LoadingBox from '../components/UI/LodingBox/LoadingBox';
 
 const HomeScreen = (props) => {
   const { error, loading, products, onFetchProducts } = props;

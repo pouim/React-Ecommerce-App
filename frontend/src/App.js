@@ -4,7 +4,7 @@ import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from './screens/ProductScreen';
 import { useSelector } from "react-redux";
 import CartScreen from './screens/CartScreen';
-import Badge from './components/UI/Badge';
+import Badge from './components/UI/Badge/Badge';
 
 function App() {
   const cartReducer = useSelector(state => state.cartReducer);
