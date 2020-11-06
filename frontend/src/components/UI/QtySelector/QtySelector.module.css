@@ -1,0 +1,52 @@
+.container {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    align-items: center;
+    width: 10rem;
+    height: 4rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    color: #0fabc6;
+    font-size: 1.071rem;
+    line-height: 1.467;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+}
+
+.qtySelectorButton {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: none;
+    margin: 0;
+    padding: 0;
+    color: #0fabc6;
+    font-size: 3rem;
+    background-color: #fff;
+    cursor: pointer;
+    width: 33%;
+    text-align: center;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.qtySelectorNumber {
+    font-family: 'Times New Roman', Times, serif;
+    width: 33%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 100%;
+    font-size: 1.9rem;
+    line-height: 15px;
+}

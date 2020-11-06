@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Rating from "../components/UI/Rating/Rating";
 import MessageBox from "../components/UI/MessageBox";
 import LoadingBox from "../components/UI/LodingBox/LoadingBox";
+import Button from '../components/UI/Button/Button';
 
 const ProductScreen = (props) => {
   const dispatch = useDispatch();
@@ -96,7 +97,7 @@ const ProductScreen = (props) => {
                         </div>
                       </li>
                       <li>
-                        <button onClick={addToCartHandler} className="primary block">Add to Cart</button>
+                        <Button onClick={addToCartHandler} title="Add To Cart" btnType="primary" />
                       </li>
                     </>
                   )}
