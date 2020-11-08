@@ -1,4 +1,4 @@
-const data = {
+export const data = {
   products: [
     {
       _id: '1',
@@ -74,4 +74,69 @@ const data = {
     },
   ],
 };
-export default data;
+
+export const navData = [
+  {
+    id: 1,
+    link: "/new-arrivals",
+    title: "NEW ARRIVALS",
+    position: "left",
+  },
+  {
+    id: 2,
+    link: "/shop",
+    title: "SHOP",
+    position: "left",
+  },
+  {
+    id: 3,
+    link: "/collections",
+    title: "COLLECTIONS",
+    position: "left",
+  },
+  {
+    id: 4,
+    link: "/",
+    title: "SEARCH",
+    position: "right",
+  },
+  {
+    id: 5,
+    link: "/signin",
+    title: "SIGN IN",
+    position: "right",
+  },
+  {
+    id: 6,
+    link: "/cart",
+    title: "CART",
+    position: "right",
+  },
+  {
+    id: 7,
+    link: "/favorites",
+    title: "FAVORITES",
+    position: "right",
+  },
+];
+
+
+ export const sidebarData = [
+          {
+            id:'CATEGORIES',
+            title: 'CATEGORIES',
+            type: 'simple',
+            children: ["TOPS", "TEES AND TANKS", "SHIRTS", "DRESSES", "JACKETS", "KNITWEAR", "JUMPSUITS", "BOTTOMS", "INTIMATES", "SHORTS", "JEANS", "SKIRTS", "SALE", "SHOP ALL"],
+          },
+
+          {
+            id: 'FILTERS',
+            title: 'FILTERS',
+            type: 'drawer',
+            children: [{title: 'SIZE', subchilds: ["sm", "md", "lg", "xl"]},
+                       {title: 'PRICE', subchilds: ["$100", "$200", "$500", "$600"]},
+                       {title: 'COLOR', subchilds: ["black", "blue", "red", "white"]}
+                      ],
+          },
+
+      ];

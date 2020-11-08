@@ -7,7 +7,7 @@ import MessageBox from "../components/UI/MessageBox";
 import LoadingBox from "../components/UI/LodingBox/LoadingBox";
 import Button from '../components/UI/Button/Button';
 
-const ProductScreen = (props) => {
+const ProductDetailScreen = (props) => {
   const dispatch = useDispatch();
   const productId = props.match.params.id;
   const productDetails = useSelector((state) => state.productDetailReducer);
@@ -111,4 +111,4 @@ const ProductScreen = (props) => {
   );
 };
 
-export default ProductScreen;
+export default ProductDetailScreen;

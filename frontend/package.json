@@ -17,6 +17,7 @@
     "@types/react-router": "^5.1.8",
     "@types/react-router-dom": "^5.1.6",
     "axios": "^0.21.0",
+    "classnames": "^2.2.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-loading-skeleton": "^2.1.1",
@@ -25,6 +26,7 @@
     "react-scripts": "4.0.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "tinycolor2": "^1.4.2",
     "typescript": "^4.0.3",
     "web-vitals": "^0.2.4"
   },

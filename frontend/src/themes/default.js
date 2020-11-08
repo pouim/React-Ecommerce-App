@@ -1,15 +1,17 @@
+import { createMuiTheme } from '@material-ui/core/styles';
 import tinycolor from "tinycolor2";
 
-const primary = "#536DFE";
-const secondary = "#FF5C93";
+const primary = "#000000";
+const secondary = "#FF5C93    ";
 const warning = "#FFC260";
 const success = "#3CD4A0";
 const info = "#9013FE";
 
+
 const lightenRate = 7.5;
 const darkenRate = 15;
 
-export default {
+export const theme = createMuiTheme({
   palette: {
     primary: {
       main: primary,
@@ -67,13 +69,8 @@ export default {
       light: "#F3F5FF",
     },
   },
-  customShadows: {
-    widget:
-      "0px 3px 11px 0px #E8EAFC, 0 3px 3px -2px #B2B2B21A, 0 1px 8px 0 #9A9A9A1A",
-    widgetDark:
-      "0px 3px 18px 0px #4558A3B3, 0 3px 3px -2px #B2B2B21A, 0 1px 8px 0 #9A9A9A1A",
-    widgetWide:
-      "0px 12px 33px 0px #E8EAFC, 0 3px 3px -2px #B2B2B21A, 0 1px 8px 0 #9A9A9A1A",
+  typography: {
+    
   },
   overrides: {
     MuiBackdrop: {
@@ -81,5 +78,26 @@ export default {
         backgroundColor: "#4A4A4A1A",
       },
     },
+    MuiTypography: {
+      root: {
+        fontFamily: '',
+      },
+      body1: {
+        fontFamily: 'Helvetica Neue LT Std',
+      },
+    },
+    MuiAccordionSummary: {
+        root: {
+          padding: '0',
+        },
+    },
+    MuiAccordion: {
+      root: {
+         "&::before": {
+              backgroundColor:" #ffffff !important",
+          },
+      },
+    },
   },
-};
+});
+

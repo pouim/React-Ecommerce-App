@@ -1,0 +1,36 @@
+.Toolbar {
+    height: 56px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    font-family: Helvetica Neue LT Std;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 90;
+    margin-bottom: 4rem;
+    box-shadow: 1px 1px 1px 1.5px rgba(143, 140, 140, 0.2);
+}
+
+.Toolbar nav {
+    height: 100%;
+
+}
+
+.brand {
+   text-align: center;
+   font-size: 3rem;
+   font-weight: bold;
+   color: #000F08;
+}
+
+@media (max-width: 499px) {
+    .DesktopOnly {
+        display: none;      
+    }
+}

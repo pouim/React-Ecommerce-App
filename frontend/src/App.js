@@ -1,37 +1,53 @@
 import React from "react";
-import { BrowserRouter, Route, Link } from "react-router-dom";
-import HomeScreen from "./screens/HomeScreen";
-import ProductScreen from './screens/ProductScreen';
-import { useSelector } from "react-redux";
+import { BrowserRouter, Route } from "react-router-dom";
+import Layout from './components/Layout/Layout';
+import CatalogScreen from "./screens/CatalogScreen/CatalogScreen";
+import ProductDetailScreen from './screens/ProductDetailScreen';
 import CartScreen from './screens/CartScreen';
-import Badge from './components/UI/Badge/Badge';
 
-function App() {
-  const cartReducer = useSelector(state => state.cartReducer);
-  const { numItems } = cartReducer
+
+
+
+const App = (props) => {
+
   return (
     <BrowserRouter>
-      <div className="grid-container">
-        <header className="row">
-          <div>
-            <Link className="brand" to="/">
-              amazona
-            </Link>
-          </div>
-          <div>
-            <Link to="/cart"><Badge numItems={numItems} /></Link>
-            <Link to="/signin">Sign In</Link>
-          </div>
-        </header>
-        <main>
-          <Route path={"/cart/:id?"} component={CartScreen} />
-          <Route path={"/product/:id"} component={ProductScreen} />
-          <Route exact path="/" component={HomeScreen} />
-        </main>
-        <footer className="row center">All right reserved</footer>
-      </div>
+    <Layout>
+      
+        <Route path={"/cart/:id?"} component={CartScreen} />
+        <Route path={"/product/:id"} component={ProductDetailScreen} />
+        <Route exact path="/" component={CatalogScreen} />
+      
+    </Layout>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
+
+
+
+
+
+      // <div className="grid-container">
+       
+      //     <div>
+      //       {/* <Toolbar
+      //         navData= {navData}
+      //         toggleDrawerClick={() => setShowSideDrawer(true)}
+      //         isAuth={props.isAuthenticated}
+      //         brandName="fasion"
+      //       /> */}
+      //       <SideDrawer
+      //         navData= {navData}
+      //         open={showSideDrawer}
+      //         closed={() => setShowSideDrawer(false)}
+      //         isAuth={props.isAuthenticated}
+      //       />
+      //     </div>
+      //   <main>
+          
+      //     
+      //   </main>
+      //   <footer className="row center">All right reserved</footer>
+      // </div>
