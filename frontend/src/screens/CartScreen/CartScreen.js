@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { onAddToCart } from "../../store/actions/Cart";
+import { onAddToCart, onDeleteFromCart } from "../../store/actions/Cart";
 import useStyles from "./styles";
 import MessageBox from "../../components/UI/MessageBox";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import Button from '../../components/UI/Button/Button';
-import CartItem from '../../components/CartItem/CartItem';
+import Button from "../../components/UI/Button/Button";
+import CartItem from "../../components/CartItem/CartItem";
+import Modal from "../../components/UI/Modal/Modal";
 
 const CartScreen = (props) => {
   const productId = props.match.params.id;
@@ -18,6 +19,7 @@ const CartScreen = (props) => {
   const cartReducer = useSelector((state) => state.cartReducer);
   const { cartItems, numItems } = cartReducer;
   const classes = useStyles();
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     if (productId) {
@@ -26,9 +28,13 @@ const CartScreen = (props) => {
   }, [dispatch, productId, qty]);
 
   const removeFromCartHandler = (id) => {
-    //deleteFromCart //TODO
+    dispatch(onDeleteFromCart(id));
   };
 
+  const handleCheckout = () => {
+    setShowModal(true);
+  };
+ 
   let content = (
     <>
       <Grid className={classes.cartContainer} container xs={12}>
@@ -47,13 +53,15 @@ const CartScreen = (props) => {
             price={item.price}
             qty={item.qty}
             countInStock={item.countInStock}
+            onClick={() => removeFromCartHandler(item.product)}
           />
         ))}
         <Grid style={{ textAlign: "center", marginTop: "1rem" }} item xs={12}>
           <Typography variant="h6" component="h6">
-            Total USD ${cartItems.reduce((acc, curr) => acc + (curr.price * curr.qty), 0)}
+            Total USD $
+            {cartItems.reduce((acc, curr) => acc + curr.price * curr.qty, 0)}
           </Typography>
-          <Button style={{padding: '0.5rem 2rem'}}>
+          <Button onClick={handleCheckout} style={{ padding: "0.5rem 2rem" }}>
             PROCEED TO CHECKOUT
           </Button>
         </Grid>
@@ -62,10 +70,27 @@ const CartScreen = (props) => {
   );
 
   if (cartItems.length === 0) {
-    content =  <MessageBox>Cart Is Empty!</MessageBox>
+    content = <MessageBox>Cart Is Empty!</MessageBox>;
   }
-  console.log(cartItems);
-  return <div className={classes.root}>{content}</div>;
+  return (
+    <div className={classes.root}>
+      {content}
+      <Modal close={() => setShowModal(false)} open={showModal}>
+        <Grid>
+          <Typography variant="h6" component="h6">
+            Total USD $
+            {cartItems.reduce((acc, curr) => acc + curr.price * curr.qty, 0)}
+          </Typography>
+          <Button onClick={handleCheckout} style={{ padding: "0.5rem 2rem", backgroundColor: 'transparent', color: '#000000' }}>
+            VIEW BAG
+          </Button>
+          <Button onClick={handleCheckout} style={{ padding: "0.5rem 2rem" }}>
+            CHECKOUT
+          </Button>
+        </Grid>
+      </Modal>
+    </div>
+  );
 };
 
 export default CartScreen;

@@ -1,4 +1,4 @@
-import { CART_ADD_ITEM } from '../types';
+import { CART_ADD_ITEM, DELETE_FROM_CART } from '../types';
 import axios from 'axios';
 
 
@@ -16,6 +16,15 @@ export const onAddToCart = (productId, qty) => async (dispatch, getState) => {
             qty
         },
     });
+    localStorage.setItem('cartItems', JSON.stringify(getState().cartReducer.cartItems));
+    localStorage.setItem('numItems', JSON.stringify(getState().cartReducer.numItems));
+};
+
+export const onDeleteFromCart = (productId) => (dispatch, getState) => {
+  dispatch({
+    type: DELETE_FROM_CART,
+    payload: productId,
+  });
     localStorage.setItem('cartItems', JSON.stringify(getState().cartReducer.cartItems));
     localStorage.setItem('numItems', JSON.stringify(getState().cartReducer.numItems));
 };

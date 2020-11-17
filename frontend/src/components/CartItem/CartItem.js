@@ -81,7 +81,7 @@ const  CartItem = (props) => {
         </CardContent>
 
         <CardContent className={classes.content2}>
-         <FormControl className={classes.formControl}>
+          <FormControl className={classes.formControl}>
             <InputLabel shrink id="demo-simple-select-placeholder-label-label">
               SIZE
             </InputLabel>
@@ -89,7 +89,7 @@ const  CartItem = (props) => {
               labelId="demo-simple-select-placeholder-label-label"
               id="demo-simple-select-placeholder-label"
               value={age}
-              onChange={e => setage(e.target.value)}
+              onChange={(e) => setage(e.target.value)}
               displayEmpty
               className={classes.selectEmpty}
             >
@@ -110,7 +110,7 @@ const  CartItem = (props) => {
               labelId="demo-simple-select-placeholder-label-label"
               id="demo-simple-select-placeholder-label"
               value={age}
-              onChange={e => setage(e.target.value)}
+              onChange={(e) => setage(e.target.value)}
               displayEmpty
               className={classes.selectEmpty}
             >
@@ -131,24 +131,24 @@ const  CartItem = (props) => {
               labelId="demo-simple-select-placeholder-label-label"
               id="demo-simple-select-placeholder-label"
               value={age}
-              onChange={e => setage(e.target.value)}
+              onChange={(e) => setage(e.target.value)}
               displayEmpty
               className={classes.selectEmpty}
             >
               <MenuItem value="">
                 <em>{props.qty}</em>
               </MenuItem>
-              {
-                [...Array(props.countInStock).keys()].map(item => (
-                  <MenuItem value={item + 2}>{item + 2}</MenuItem>
-                ))
-              }
-              
-              
+              {[...Array(props.countInStock).keys()].map((item) => (
+                <MenuItem value={item + 2}>{item + 2}</MenuItem>
+              ))}
             </Select>
           </FormControl>
         </CardContent>
-        <Button className={classes.button} startIcon={<DeleteIcon />}>
+        <Button
+          className={classes.button}
+          startIcon={<DeleteIcon />}
+          onClick={props.onClick}
+        >
           REMOVE
         </Button>
       </div>

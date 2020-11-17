@@ -4,7 +4,7 @@ import Layout from './components/Layout/Layout';
 import CatalogScreen from "./screens/CatalogScreen/CatalogScreen";
 import ProductDetailScreen from './screens/ProductDetailScreen/ProductDetailScreen';
 import CartScreen from './screens/CartScreen/CartScreen';
-
+import CheckoutScreen from './screens/CheckoutScreen/CheckoutScreen';
 
 
 
@@ -13,7 +13,7 @@ const App = (props) => {
   return (
     <BrowserRouter>
     <Layout>
-      
+        <Route path={"/checkout"} component={CheckoutScreen} />
         <Route path={"/cart/:id?"} component={CartScreen} />
         <Route path={"/product/:id"} component={ProductDetailScreen} />
         <Route exact path="/" component={CatalogScreen} />

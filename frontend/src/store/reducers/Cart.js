@@ -1,4 +1,4 @@
-import { CART_ADD_ITEM } from '../types';
+import { CART_ADD_ITEM, DELETE_FROM_CART } from '../types';
 
 const initialState = {
     cartItems: localStorage.getItem('cartItems')
@@ -28,7 +28,14 @@ export const cartReducer = (state = initialState, action) => {
                 cartItems: [...state.cartItems, item],
                 numItems: state.numItems + item.qty
             };
-        }
+        };
+        case DELETE_FROM_CART: 
+            const itemToDeleteId = action.payload;
+            return {
+                ...state,
+                cartItems: state.cartItems.filter(items => items.product !== itemToDeleteId)
+            };
+        
         default: 
           return state;   
     }
