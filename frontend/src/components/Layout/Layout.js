@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import classnames from "classnames";
 // styles
 import useStyles from "./styles";
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';

@@ -3,9 +3,6 @@ import Typography from "@material-ui/core/Typography";
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Grid from "@material-ui/core/Grid";
 import { Link } from 'react-router-dom';
 import useStyles from  "./styles";
@@ -70,7 +67,7 @@ const SidebarLink = (props) => {
               </Grid>
             );
         }
-    })
+    });
     
     return (
         <div>

@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import Layout from './components/Layout/Layout';
 import CatalogScreen from "./screens/CatalogScreen/CatalogScreen";
-import ProductDetailScreen from './screens/ProductDetailScreen';
-import CartScreen from './screens/CartScreen';
+import ProductDetailScreen from './screens/ProductDetailScreen/ProductDetailScreen';
+import CartScreen from './screens/CartScreen/CartScreen';
 
 
 

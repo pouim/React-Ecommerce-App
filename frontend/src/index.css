@@ -13,3 +13,7 @@ body {
   margin: 0;
 }
 
+#demo-simple-select-label, #demo-simple-select {
+  font-family: 'Helvetica Neue LT Std';
+}
+

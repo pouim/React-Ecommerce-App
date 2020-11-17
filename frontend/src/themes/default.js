@@ -91,10 +91,32 @@ export const theme = createMuiTheme({
           padding: '0',
         },
     },
+    MuiList: {
+      root: {
+        zIndex: '3500',
+      },
+    },
     MuiAccordion: {
       root: {
          "&::before": {
               backgroundColor:" #ffffff !important",
+          },
+      },
+    },
+    MuiInput: {
+      root: {
+          padding: '0 0.2rem',
+      },
+      underline: {
+          padding: '0 0.2rem',
+          "&::before": {
+              border: 'none',
+          },
+          "&::after": {
+              border: 'none',
+          },
+          "&::focus": {
+              border: 'none',
           },
       },
     },
