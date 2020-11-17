@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -62,6 +62,7 @@ const  CartItem = (props) => {
   const classes = useStyles();
   const theme = useTheme();
   const [age, setage] = useState('');
+
 
   return (
     <Card className={classes.root}>
@@ -130,16 +131,13 @@ const  CartItem = (props) => {
             <Select
               labelId="demo-simple-select-placeholder-label-label"
               id="demo-simple-select-placeholder-label"
-              value={age}
+              defaultValue={props.qty}
               onChange={(e) => setage(e.target.value)}
               displayEmpty
               className={classes.selectEmpty}
             >
-              <MenuItem value="">
-                <em>{props.qty}</em>
-              </MenuItem>
               {[...Array(props.countInStock).keys()].map((item) => (
-                <MenuItem value={item + 2}>{item + 2}</MenuItem>
+                <MenuItem value={item + 1}>{item + 1}</MenuItem>
               ))}
             </Select>
           </FormControl>
