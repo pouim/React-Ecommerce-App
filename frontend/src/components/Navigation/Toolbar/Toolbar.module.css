@@ -27,6 +27,7 @@
    font-size: 3rem;
    font-weight: bold;
    color: #000F08;
+   text-decoration: none;
 }
 .NavItems {
     margin: 0;
@@ -38,9 +39,7 @@
     height: 100%;
 
 }
-.input {
-    
-}
+
 
 @media (max-width: 499px) {
     .DesktopOnly {

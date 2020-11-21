@@ -132,7 +132,7 @@ const  CartItem = (props) => {
               labelId="demo-simple-select-placeholder-label-label"
               id="demo-simple-select-placeholder-label"
               defaultValue={props.qty}
-              onChange={(e) => setage(e.target.value)}
+              onChange={props.onChangeNumberOfItems}
               displayEmpty
               className={classes.selectEmpty}
             >

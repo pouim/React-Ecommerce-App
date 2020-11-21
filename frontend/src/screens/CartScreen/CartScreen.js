@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { onAddToCart, onDeleteFromCart } from "../../store/actions/Cart";
+import { onAddToCart, onDeleteFromCart, onEditCartItemQty } from "../../store/actions/Cart";
 import useStyles from "./styles";
 import MessageBox from "../../components/UI/MessageBox";
 import Grid from "@material-ui/core/Grid";
@@ -31,6 +31,10 @@ const CartScreen = (props) => {
     dispatch(onDeleteFromCart(id));
   };
 
+  const changeItemNumberFromCartHandler = (id, event) => {
+    dispatch(onEditCartItemQty(id, event.target.value));
+  };
+
   const handleCheckout = () => {
     setShowModal(true);
   };
@@ -54,6 +58,7 @@ const CartScreen = (props) => {
             qty={item.qty}
             countInStock={item.countInStock}
             onClick={() => removeFromCartHandler(item.product)}
+            onChangeNumberOfItems={(e) => changeItemNumberFromCartHandler(item.product, e)}
           />
         ))}
         <Grid style={{ textAlign: "center", marginTop: "1rem" }} item xs={12}>

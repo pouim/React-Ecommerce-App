@@ -1,12 +1,9 @@
-import { CART_ADD_ITEM, DELETE_FROM_CART } from '../types';
+import { CART_ADD_ITEM, DELETE_FROM_CART, EDIT_CART_ITEM_QTY } from '../types';
 
 const initialState = {
     cartItems: localStorage.getItem('cartItems')
                ? JSON.parse(localStorage.getItem('cartItems'))
                : [],
-    numItems: localStorage.getItem('numItems')
-               ? JSON.parse(localStorage.getItem('numItems'))
-               : 0,
 }
 export const cartReducer = (state = initialState, action) => {
     switch(action.type) {
@@ -20,21 +17,29 @@ export const cartReducer = (state = initialState, action) => {
                 cartItems: state.cartItems.map(x => 
                 x.product === existItem.product ? newItem : x
                 ),
-                numItems: state.numItems + item.qty
             }
         } else {
             return {
                 ...state,
                 cartItems: [...state.cartItems, item],
-                numItems: state.numItems + item.qty
             };
         };
         case DELETE_FROM_CART: 
             const itemToDeleteId = action.payload;
+
             return {
                 ...state,
-                cartItems: state.cartItems.filter(items => items.product !== itemToDeleteId)
+                cartItems: state.cartItems.filter(items => items.product !== itemToDeleteId),
             };
+        case EDIT_CART_ITEM_QTY: 
+            const itemToEdit = state.cartItems.find(item => item.product === action.payload.productId);
+            const editedItem = {...itemToEdit, qty: action.payload.newQty};
+            return {
+                ...state,
+                cartItems: state.cartItems.map(item => 
+                item.product === editedItem.product ? editedItem: item
+                ),
+            };    
         
         default: 
           return state;   

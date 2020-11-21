@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import NavItems from "../NavItems/NavItems";
 import classes from "../Toolbar/Toolbar.module.css";
 import DrawerToggle from "../SideDrawer/DrawerToggle/DrawerToggle";
@@ -19,7 +20,7 @@ const Toolbar = (props) => {
           }
         />
       </nav>
-      <div className={classes.brand}>{props.brandName}</div>
+      <Link to="/" className={classes.brand}>{props.brandName}</Link>
       <nav className={classes.DesktopOnly}>
         <NavItems
           items={

@@ -1,4 +1,4 @@
-import { CART_ADD_ITEM, DELETE_FROM_CART } from '../types';
+import { CART_ADD_ITEM, DELETE_FROM_CART, EDIT_CART_ITEM_QTY } from '../types';
 import axios from 'axios';
 
 
@@ -17,7 +17,6 @@ export const onAddToCart = (productId, qty) => async (dispatch, getState) => {
         },
     });
     localStorage.setItem('cartItems', JSON.stringify(getState().cartReducer.cartItems));
-    localStorage.setItem('numItems', JSON.stringify(getState().cartReducer.numItems));
 };
 
 export const onDeleteFromCart = (productId) => (dispatch, getState) => {
@@ -26,5 +25,15 @@ export const onDeleteFromCart = (productId) => (dispatch, getState) => {
     payload: productId,
   });
     localStorage.setItem('cartItems', JSON.stringify(getState().cartReducer.cartItems));
-    localStorage.setItem('numItems', JSON.stringify(getState().cartReducer.numItems));
+};
+
+export const onEditCartItemQty = (productId, newQty) => (dispatch, getState) => {
+  dispatch({
+    type: EDIT_CART_ITEM_QTY,
+    payload: {
+        id: productId,
+        newQty: newQty
+    },
+  });
+  localStorage.setItem('cartItems', JSON.stringify(getState().cartReducer.cartItems));
 };
