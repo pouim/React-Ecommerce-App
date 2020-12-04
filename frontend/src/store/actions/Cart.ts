@@ -3,7 +3,6 @@ import {
   DELETE_FROM_CART,
   EDIT_CART_ITEM_QTY,
   CartActionTypes,
-  CartState,
 } from "../types";
 import axios from "axios";
 import { Dispatch } from "redux";

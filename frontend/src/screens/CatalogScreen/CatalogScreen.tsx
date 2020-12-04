@@ -4,7 +4,7 @@ import { onFetchProducts } from "../../store/actions/Products";
 import Card from "../../components/Card/Card";
 import Sidebar from "../../components/Sidebar/Sidebar";
 // import SidebarDrawer from '../../components/Sidebar/SidebarDrawer/SidebarDrawer';
-// import SidebarLink from "../../components/Sidebar/SidebarLink/SidebarLink";
+import SidebarLink from "../../components/Sidebar/SidebarLink/SidebarLink";
 // import MessageBox from "../components/UI/MessageBox";
 // import LoadingBox from "../components/UI/LodingBox/LoadingBox";
 import Grid from "@material-ui/core/Grid";
@@ -44,7 +44,7 @@ const CatalogScreen: React.FC<CatalogScreenProps> = (props) => {
         <Grid item xs={12} sm={3}>
           <Hidden only={["sm", "xs"]}>
             <Sidebar>
-              {/* <SidebarLink sidebarData={sidebarData} /> */}
+              <SidebarLink sidebarData={sidebarData} />
             </Sidebar>
           </Hidden>
           {/* <SidebarDrawer /> */}

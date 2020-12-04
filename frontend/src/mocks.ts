@@ -133,7 +133,7 @@ export const navData = [
             id: 'FILTERS',
             title: 'FILTERS',
             type: 'drawer',
-            children: [{title: 'SIZE', subchilds: ["sm", "md", "lg", "xl"]},
+            drawerChildren: [{title: 'SIZE', subchilds: ["sm", "md", "lg", "xl"]},
                        {title: 'PRICE', subchilds: ["$100", "$200", "$500", "$600"]},
                        {title: 'COLOR', subchilds: ["black", "blue", "red", "white"]}
                       ],
