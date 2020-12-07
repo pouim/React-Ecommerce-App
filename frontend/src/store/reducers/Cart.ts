@@ -39,17 +39,17 @@ export const cartReducer = (state = initialState, action: CartActionTypes): Cart
           (items) => items.product !== itemToDeleteId
         ),
       };
-    // case EDIT_CART_ITEM_QTY:
-    //   const itemToEdit = state.cartItems.find(
-    //     (item) => item.product === action.payload.productId
-    //   );
-    //   const editedItem = { ...itemToEdit, qty: action.payload.newQty };
-    //   return {
-    //     ...state,
-    //     cartItems: state.cartItems.map((item) =>
-    //       item.product === editedItem.product ? editedItem : item
-    //     ),
-    //   };
+    case EDIT_CART_ITEM_QTY:
+      const itemToEdit = state.cartItems.find(
+        (item) => item.product === action.payload.productId
+      );
+      const editedItem = { ...itemToEdit, qty: action.payload.newQty };
+      return {
+        ...state,
+        cartItems: state.cartItems.map((item) =>
+          item.product === editedItem.product ? editedItem : item
+        ),
+      };
 
     default:
       return state;

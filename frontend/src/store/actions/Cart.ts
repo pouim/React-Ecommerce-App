@@ -43,7 +43,7 @@ export const onDeleteFromCart = (productId: string) => (
   );
 };
 
-export const onEditCartItemQty = (productId: string, newQty: number) => (
+export const onEditCartItemQty = (productId: string, newQty: any) => (
   dispatch: Dispatch<CartActionTypes>,
   getState: () => any
 ) => {

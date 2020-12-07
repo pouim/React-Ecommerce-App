@@ -105,7 +105,7 @@ export type Cart = {
   image: string;
   price: string;
   countInStock: number;
-  qty: number;
+  qty: any;
 }
 
 export interface CartState {
